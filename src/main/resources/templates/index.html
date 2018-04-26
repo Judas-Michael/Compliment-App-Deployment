@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random Compliment</title>
+
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<h1>Random Compliment Page</h1>
+
+<button id="get-random-compliment">Please Click Here!</button>
+
+<h2 id="compliment"></h2>
+
+
+<script>
+
+    $(function(){
+
+        $('#get-random-compliment').click(getCompliment);
+
+        function getCompliment () {
+            $.get(
+                'random',
+                null,
+                function (compliment) {
+                    $("#compliment").text(compliment.text);
+                }
+            )
+        }
+    });
+
+</script>
+</body>
+</html>
